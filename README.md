@@ -12,6 +12,9 @@ npm install	Installiert die Abhängigkeiten.
 
 ng add @angular/material	Fügt Angular Material mit Theme hinzu.
 
+Wichtig:
+Bei der Auswahl des Themes wähle Indigo/Pink aus, um das Design konsistent zu halten.
+
 npm run server	Startet den Backend-JSON-Server.
 
 ng serve	Startet die Angular-Entwicklungsumgebung.
