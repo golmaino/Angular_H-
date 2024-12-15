@@ -1,9 +1,19 @@
 <<<<<<< HEAD
-# Angular_H-
+# Angular_Hue
 =======
 # ActiveTogetherApp
 
+
+
+!!!!!Befehl	Beschreibung!!!!!!!
+          Wichtig
+npm install	Installiert die Abhängigkeiten.
+ng add @angular/material	Fügt Angular Material mit Theme hinzu.
+npm run server	Startet den Backend-JSON-Server.
+ng serve	Startet die Angular-Entwicklungsumgebung.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+
 
 ## Development server
 
