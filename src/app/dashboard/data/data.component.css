@@ -1,0 +1,94 @@
+/* Zentrierter Container für Inhalt */
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 1200px; /* Max. Breite des Containers */
+}
+
+/* Styling für Abschnitte */
+.section-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* Überschrift-Styling */
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Tabellen-Styling */
+.table {
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+/* Formularabstand */
+form {
+  margin-bottom: 3rem;
+}
+
+/* Zentrierte Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-container button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Banner-Styling */
+.banner {
+  background-color: #007bff; /* Blau */
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Abstand zwischen Bild und Text */
+}
+
+.banner img {
+  max-height: 60px; /* Höhe des Logos oder Bildes */
+}
+
+.container-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert alles horizontal */
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}

@@ -1,0 +1,40 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="form-container">
+  <h2>Zum Kurs anmelden!</h2>
+  
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name">
+    <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">
+      Name ist erforderlich.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Geburtsdatum</mat-label>
+    <input matInput type="date" formControlName="birthdate">
+    <mat-error *ngIf="registrationForm.get('birthdate')?.hasError('required')">
+      Geburtsdatum ist erforderlich.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Kurs auswählen</mat-label>
+    <mat-select formControlName="courseId">
+      <mat-option value="" disabled>Bitte auswählen</mat-option>
+      <mat-option *ngFor="let course of storeService.courses" [value]="course.id">
+        {{ course.name }}, {{ course.instructor }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="registrationForm.get('courseId')?.hasError('required')">
+      Kurs ist erforderlich.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="newsletter">
+    Für Newsletter anmelden
+  </mat-checkbox>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">
+    Erfassen
+  </button>
+</form>

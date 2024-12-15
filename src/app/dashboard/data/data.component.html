@@ -1,0 +1,70 @@
+
+
+<div class="center-container">
+  <!-- Kursübersicht -->
+  <div class="section-container">
+    <h2 class="section-title">Verfügbare Kurse</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Kurs</th>
+          <th>Veranstaltungsort</th>
+          <th>Adresse</th>
+          <th>Öffentlich erreichbar?</th>
+          <th>Kursleiter</th>
+          <th>Alle Termine</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of storeService.courses">
+          <td>{{ course.name }}</td>
+          <td>{{ course.eventLocation?.name }}</td>
+          <td>{{ course.eventLocation?.address }}</td>
+          <td>{{ course.eventLocation?.venueByPublicTansport ? 'Ja' : 'Nein' }}</td>
+          <td>{{ course.instructor }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let date of course.dates">
+                {{ date.begin | date: 'MMM dd, yyyy' }} - {{ date.end | date: 'MMM dd, yyyy' }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Registrierungsübersicht -->
+  <div class="section-container">
+    <h2 class="section-title">Registrierte Teilnehmer</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Geburtsdatum</th>
+          <th>Kurs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let registration of storeService.registrations">
+          <td>{{ registration.name }}</td>
+          <td>{{ registration.birthdate }}</td>
+          <td>{{ registration.course.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination-container">
+    <button
+      [ngClass]="page == storeService.currentPage ? 'active' : ''"
+      (click)="selectPage(page)"
+      type="button"
+      *ngFor="let page of returnAllPages()"
+      class="btn btn-outline-primary m-1"
+    >
+      {{ page }}
+    </button>
+  </div>
+</div>
