@@ -89,18 +89,18 @@
       "id": 3
     },
     {
-      "name": "asdf",
-      "courseId": "_iL775i",
-      "birthdate": "1995-10-12",
+      "name": "adf",
+      "courseId": "_iL775j",
+      "birthdate": "0111-11-11",
       "newsletter": true,
-      "id": 4
+      "id": 9
     },
     {
-      "name": "Sascha Schitter",
-      "courseId": "_iL775a",
-      "birthdate": "2024-12-24",
-      "newsletter": false,
-      "id": 5
+      "name": "sascha",
+      "courseId": "_iL775j",
+      "birthdate": "2333-02-11",
+      "newsletter": true,
+      "id": 10
     }
   ]
 }

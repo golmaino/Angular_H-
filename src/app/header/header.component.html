@@ -1,6 +1,10 @@
-<div>
+<div class="header">
+  <div class="header-content">
+    <img [src]="imagePath" alt="Logo">
     <h1>{{ title }}</h1>
-    <img src={{imagePath}}>&nbsp;&nbsp;
-    <a [routerLink]="['/dashboard']">Dashboard</a>&nbsp;&nbsp;
+  </div>
+  <nav>
+    <a [routerLink]="['/dashboard']">Dashboard</a>
     <a [routerLink]="['/about']">About</a>
+  </nav>
 </div>

@@ -39,21 +39,38 @@
     <h2 class="section-title">Registrierte Teilnehmer</h2>
     <table class="table table-bordered">
       <thead>
-        <tr>
-          <th>Name</th>
-          <th>Geburtsdatum</th>
-          <th>Kurs</th>
-        </tr>
+      <tr>
+        <th>Name</th>
+        <th>Geburtsdatum</th>
+        <th>Kurs</th>
+        <th>Aktionen</th> <!-- Neue Spalte für den Abmelden-Button -->
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let registration of storeService.registrations">
-          <td>{{ registration.name }}</td>
-          <td>{{ registration.birthdate }}</td>
-          <td>{{ registration.course.name }}</td>
-        </tr>
+      <tr *ngFor="let registration of storeService.filteredRegistrations">
+        <td>{{ registration.name }}</td>
+        <td>{{ registration.birthdate }}</td>
+        <td>{{ registration.course.name }}</td>
+        <td>
+          <!-- Spinner (falls aktiv) -->
+          <div class="spinner-overlay" *ngIf="loadingId === registration.id">
+            <div class="spinner"></div>
+          </div>
+          <!-- Abmelden-Button -->
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="onCancelRegistration(registration.id)"
+            [disabled]="loadingId === registration.id"
+          >
+            {{ loadingId === registration.id ? 'Abmelden...' : 'Abmelden' }}
+          </button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
+
 
   <!-- Pagination -->
   <div class="pagination-container">
@@ -68,3 +85,20 @@
     </button>
   </div>
 </div>
+
+<!--<thead>
+<tr>
+  <th (click)="sortTable('name')">Name</th>
+  <th (click)="sortTable('birthdate')">Geburtsdatum</th>
+  <th (click)="sortTable('course.name')">Kurs</th>
+  <th>Aktionen</th>
+</tr>
+</thead>
+
+<input
+  type="text"
+  [(ngModel)]="filterText"
+  (input)="filterTable()"
+  placeholder="Teilnehmer filtern..."
+  class="form-control"
+/>-->

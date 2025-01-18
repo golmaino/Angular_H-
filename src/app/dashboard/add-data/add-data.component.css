@@ -1,0 +1,10 @@
+/* Container für die Formularausrichtung */
+.form-container {
+  display: flex;
+  flex-direction: column; /* Vertikale Anordnung der Elemente */
+  margin: 0 auto; /* Zentrierung */
+  padding: 5px; /* Abstand innen */
+  max-width: 1000px; /* Begrenzte Breite */
+  transform: translateX(50px); /* Nach rechts verschieben */
+}
+

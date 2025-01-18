@@ -1,6 +1,6 @@
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="form-container">
   <h2>Zum Kurs anmelden!</h2>
-  
+
   <mat-form-field appearance="fill" class="full-width">
     <mat-label>Name</mat-label>
     <input matInput placeholder="Name" formControlName="name">
@@ -35,6 +35,6 @@
   </mat-checkbox>
 
   <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">
-    Erfassen
+    Registrieren
   </button>
 </form>
