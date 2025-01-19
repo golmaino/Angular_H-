@@ -43,6 +43,7 @@
         <th>Name</th>
         <th>Geburtsdatum</th>
         <th>Kurs</th>
+        <th>Anmeldedatum</th>
         <th>Aktionen</th> <!-- Neue Spalte für den Abmelden-Button -->
       </tr>
       </thead>
@@ -51,6 +52,7 @@
         <td>{{ registration.name }}</td>
         <td>{{ registration.birthdate }}</td>
         <td>{{ registration.course.name }}</td>
+        <td>{{ registration.registrationDate | date: 'dd.MM.yyyy' }}</td>
         <td>
           <!-- Spinner (falls aktiv) -->
           <div class="spinner-overlay" *ngIf="loadingId === registration.id">
@@ -85,6 +87,7 @@
     </button>
   </div>
 </div>
+
 
 <!--<thead>
 <tr>

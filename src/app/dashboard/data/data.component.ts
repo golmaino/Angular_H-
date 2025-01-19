@@ -12,34 +12,41 @@ import { BackendService } from '../../shared/backend.service';
 })
 export class DataComponent implements OnInit {
   public page: number = 1; // Startseite für Registrierungen
-  public loadingId:string | null = null;/*
+  public loadingId:string | null = null;
   public sortColumn: string = '';
   public sortDirection: 'asc' | 'desc' = 'asc';
   public filterText: string = '';
-*/
+
   constructor(
     public storeService: StoreService,
     private backendService: BackendService
   ) {}
 
 
-/*  sortTable(column: string): void {
+  sortTable(column: string): void {
     if (this.sortColumn === column) {
-      // Umschalten der Sortierreihenfolge
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
     } else {
       this.sortColumn = column;
-      this.sortDirection = 'asc'; // Standardmäßig aufsteigend sortieren
+      this.sortDirection = 'asc'; // Standard aufsteigend
     }
 
     this.storeService.registrations.sort((a: any, b: any) => {
       const valueA = column === 'course.name' ? a.course.name : a[column];
       const valueB = column === 'course.name' ? b.course.name : b[column];
+
+      if (column === 'registrationDate') {
+        return this.sortDirection === 'asc'
+          ? new Date(valueA).getTime() - new Date(valueB).getTime()
+          : new Date(valueB).getTime() - new Date(valueA).getTime();
+      }
+
       return this.sortDirection === 'asc'
         ? valueA.localeCompare(valueB)
         : valueB.localeCompare(valueA);
     });
-  }*/
+  }
+
 
   ngOnInit(): void {
     this.backendService.getCourses();
