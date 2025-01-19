@@ -39,7 +39,12 @@ export class BackendService {
   }
 
   public addRegistration(registration: any, page: number) {
-    this.http.post('http://localhost:5000/registrations', registration).subscribe(
+    const registrationWithDate = {
+      ...registration,
+      registrationDate: new Date().toISOString().split('T')[0], // Format YYYY-MM-DD
+    };
+
+    this.http.post('http://localhost:5000/registrations', registrationWithDate).subscribe(
       (_) => {
         this.getRegistrations(page);
         this.snackBar.open('Registrierung erfolgreich hinzugefügt!', 'Schließen', {
@@ -53,6 +58,8 @@ export class BackendService {
       }
     );
   }
+
+
 
   public deleteRegistration(registrationId: string, page: number): void {
     this.http.delete(`http://localhost:5000/registrations/${registrationId}`).subscribe(
